@@ -12,7 +12,10 @@ form.addEventListener("submit", (event) =>{
 
     newTask.textContent = inputTask.value;
     deleteButton.textContent = "Delete";
-    completeButton.textContent = "Complete"
+    deleteButton.classList.add("deleteButton");
+
+    completeButton.textContent = "Complete";
+    completeButton.classList.add("completeButton");
 
     newTask.append(deleteButton);
     newTask.append(completeButton)
@@ -29,6 +32,15 @@ form.addEventListener("submit", (event) =>{
 
     completeButton.addEventListener("click", () => {
         newTask.classList.toggle("completed")
+
+        if(newTask.classList.contains("completed"))
+        {
+            completeButton.textContent = "Mark as incomplete";
+        } else
+        {
+            completeButton.textContent = "Mark as complete";
+        }
+        
     })
 
     inputTask.focus();
