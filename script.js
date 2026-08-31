@@ -7,20 +7,29 @@ form.addEventListener("submit", (event) =>{
 
     const newTask = document.createElement("li");
     const deleteButton = document.createElement("button");
+    const completeButton = document.createElement("button");
 
 
     newTask.textContent = inputTask.value;
-    deleteButton.textContent = "Eliminar";
+    deleteButton.textContent = "Delete";
+    completeButton.textContent = "Complete"
 
     newTask.append(deleteButton);
+    newTask.append(completeButton)
     taskList.append(newTask);
 
     inputTask.value = "";
 
     deleteButton.type = "button";
+    completeButton.type = "button";
 
     deleteButton.addEventListener("click", () =>{
         newTask.remove();
     })
+
+    completeButton.addEventListener("click", () => {
+        newTask.classList.toggle("completed")
+    })
+
     inputTask.focus();
 })
